@@ -61,3 +61,33 @@ document.querySelectorAll(".elem").forEach(function (elem) {
     });
   });
 });
+
+function updateClock() {
+  const now = new Date();
+  const options = {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  };
+  const formattedTime = now.toLocaleTimeString(undefined, options);
+
+  document.getElementById("clock").textContent = formattedTime;
+}
+
+// Update the clock immediately
+updateClock();
+
+// Update the clock every second (1000 milliseconds)
+setInterval(updateClock, 1000);
+
+function updateYear() {
+  const now = new Date();
+  const year = now.getFullYear();
+
+  document.getElementById("year").textContent = year;
+}
+// Update the year immediately
+updateYear();
+// Update the year periodically (e.g., every day) to account for year change
+setInterval(updateYear, 24 * 60 * 60 * 1000);
